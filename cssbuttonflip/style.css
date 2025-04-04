@@ -1,0 +1,91 @@
+body{
+    background:#333;
+    display:flex;
+    min-height:100vh;
+    align-items: center;
+
+}
+
+.button-group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+ion-icon{
+    color:white;
+    font-size:30px;
+    background:var(--color);
+    filter:brightness(0.9);
+    padding:5px;
+    margin-left: 15px;
+    border-radius: 5px 0 0 5px;
+    margin-bottom: -14px;
+    margin-right: -4px;
+}
+
+/*Button front*/
+.btn-flip::before{
+    content:attr(data-front);
+    color:white;
+    background:var(--color);
+    padding:0 20px;
+    border-radius: 5px 0 0 5px;
+    display:block;
+    line-height: 40px;
+    position:relative;
+    transition:0 5s;
+    opacity:1;;
+}
+
+.btn-flip{
+    line-height: 40px;
+    position:relative;
+    display:inline-block;
+    text-align:center;
+    font-family: 'Gill Sans';
+    display: inline-block;
+    margin:10 auto;
+    cursor: pointer;
+
+
+}
+
+/*Button back*/
+.btn-flip::after{
+    content:attr(data-back);
+    color:white;
+    background:var(--color);
+    padding:0 20px;
+    border-radius: 0 5px 5px 0;
+    display:block;
+    line-height: 40px;
+    position:absolute;
+    top:0;
+    left:0;
+    transform:translateX(100%);
+    transition:transform 0.5s;
+    transform: translateY(-50%) rotatex(90deg);
+    opacity:1;
+    width:100%
+}
+
+/* Hover effect */
+.btn-flip:hover::after{
+    transform:translateY(0) rotatex(0);
+    opacity:1;
+}
+.btn-flip:hover::before{
+    transform:translateY(50) rotatex(90deg);
+    opacity:0;
+}
+
+footer {
+    text-align: center;
+    font-size: 25px;
+    color: #eee2e2;
+    position: absolute;
+    bottom: 50px; /* Ensures it stays at the bottom */
+    width: 100%;
+}
